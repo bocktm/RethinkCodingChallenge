@@ -1,0 +1,2 @@
+C:\Users\bockt\source\repos\RethinkCodingChallenge\PatientsWebApp\obj\Debug\PatientsWebApp.esproj.SuggestedBindingRedirects.cache
+C:\Users\bockt\source\repos\RethinkCodingChallenge\PatientsWebApp\obj\Debug\PatientsWebApp.esproj.CoreCompileInputs.cache

@@ -1,0 +1,54 @@
+<h2>Patients</h2>
+<div class="mat-elevation-z2">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>First Name</th>
+      <td mat-cell *matCellDef="let row">{{row.firstName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+      <td mat-cell *matCellDef="let row">{{row.lastName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="birthday">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Birthday</th>
+      <td mat-cell *matCellDef="let row">{{row.birthday | date:'MM/dd/yyyy'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+      <td mat-cell *matCellDef="let row">{{row.gender}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row"><a mat-stroked-button href="http://localhost:4200/patients/{{row.id}}">Edit</a></td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+    [length]="dataSource?.data?.length"
+    [pageIndex]="0"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]"
+    aria-label="Select page">
+  </mat-paginator>
+</div>
+
+<div id="file-upload">
+  <h3>Upload a CSV list of Patients</h3>
+  <p><input title="file-upload" type="file" (change)="fileSelected($event)" #fileUpload/></p>
+  <section class="file-upload-status">
+    <p>
+      <button mat-stroked-button color="primary" class="upload-btn" (click)="addPatients()">Add Patients</button>
+      <button mat-stroked-button color="warn" class="upload-btn" (click)="replacePatients()">Replace All Patients</button>
+    </p>
+    <p>
+      <em>Note: "Replace All Patients" will act as an HTML PUT, and completely replace all the patients in the database.</em>
+    </p>
+  </section>
+</div>

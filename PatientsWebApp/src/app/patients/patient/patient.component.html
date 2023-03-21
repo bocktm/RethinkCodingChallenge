@@ -1,0 +1,36 @@
+<h2>Patient Update</h2>
+<div id="patient-update" class="mat-elevation-z2">
+    <form #patientForm="ngForm" (ngSubmit)="updatePatient()">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input title="firstName" matInput name="firstName" [(ngModel)]="patient.firstName">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input title="lastName" matInput name="lastName" [(ngModel)]="patient.lastName">
+            </mat-form-field>
+        </div>
+        <div>
+        <mat-form-field appearance="fill">
+                <mat-label>Birthday</mat-label>
+                <input title="birthday" matInput name="birthday" [matDatepicker]="patientBirthdayPicker" [(ngModel)]="patient.birthday">
+                <mat-datepicker-toggle [for]="patientBirthdayPicker" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #patientBirthdayPicker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <mat-select name="gender" [(ngModel)]="patient.gender">
+                    <mat-option value="M">Male</mat-option>
+                    <mat-option value="F">Female</mat-option>
+                    <mat-option value="NB">Non-Binary</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <button mat-stroked-button color="primary" class="update-btn">Update Patient</button>
+    </form>
+</div>

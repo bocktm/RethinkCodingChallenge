@@ -1,0 +1,8 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+#patient-update{
+    padding: 20px;
+}
